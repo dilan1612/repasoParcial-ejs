@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./templates/header.ejs')%>
+<body>
+  <h1>Ejemplo de view engine EJS</h1>
+  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas culpa reprehenderit assumenda veniam, iusto ducimus modi. Delectus a earum assumenda architecto quis repellat obcaecati aut nam laudantium. Deleniti, animi voluptates.</div>
+
+  <div>
+    <%if( data.size > 0){%>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id Guitar</th>
+            <th>Nombre Guitar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%for(const [k,v] of data ){%>
+            <tr>
+              <td>
+                <%= k %>
+              </td>
+              <td>
+                <%= v.name %>
+              </td>
+            </tr>
+          <%}%>
+        </tbody>
+      </table>
+    <%}else{%>
+      <a href="/new-record">Agregar nueva guitarra</a>
+    <%}%>
+  </div>
+  <%- include('./templates/footer.ejs')%>
+</body>
+</html>
